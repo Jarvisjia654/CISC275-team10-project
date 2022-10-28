@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Jarvisjia654/CISC275-team10-project/static/css/main.ac6848e5.css",
+    "main.js": "/Jarvisjia654/CISC275-team10-project/static/js/main.d9d40d60.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Jarvisjia654/CISC275-team10-project/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/Jarvisjia654/CISC275-team10-project/index.html",
+    "main.ac6848e5.css.map": "/Jarvisjia654/CISC275-team10-project/static/css/main.ac6848e5.css.map",
+    "main.d9d40d60.js.map": "/Jarvisjia654/CISC275-team10-project/static/js/main.d9d40d60.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Jarvisjia654/CISC275-team10-project/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac6848e5.css",
+    "static/js/main.d9d40d60.js"
+  ]
+}
