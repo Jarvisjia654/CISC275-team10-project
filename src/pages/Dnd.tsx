@@ -49,7 +49,7 @@ const  Dnd = () => {
       <ul className="completedList">
           <li>
               {" "}
-              features: 
+              Basic layout of the page, and the drag and drop function.(finished)
           </li>
         
       </ul>

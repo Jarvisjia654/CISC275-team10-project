@@ -9,10 +9,11 @@ function App(): JSX.Element{
     <>
       <Navbar/>
       <Container className = "mb-4">
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dnd" element={<Dnd />} />
-        </Routes>
+        </Routes> */}
+        <Dnd/>
       </Container>
     </>
   );
