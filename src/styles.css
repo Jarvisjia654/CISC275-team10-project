@@ -1,0 +1,11 @@
+.Form {
+  max-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Task {
+  max-width: 500px;
+  display: flex;
+  float: left;
+}

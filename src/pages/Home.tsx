@@ -1,5 +1,5 @@
-import React from 'react'
-import Stopwatch from '../components/StopWatch'
+import React from "react";
+import Stopwatch from "../components/StopWatch";
 
 function Home() {
   return (
@@ -7,6 +7,6 @@ function Home() {
       StopWatch
       <Stopwatch />
     </div>
-  )
+  );
 }
 export default Home;
