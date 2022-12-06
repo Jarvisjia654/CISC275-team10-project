@@ -38,11 +38,11 @@ const ParkingBlock = (props: ParkingBlockProps) => {
         position: "relative",
         width: "100%",
         height: "100%",
-        border: "1px solid black"
+        // border: "1px solid black"
     }}
     >
       <div>
-        <p>{boxId}</p>
+        {/* <p>{boxId}</p> */}
         {taskList
               .filter((task) => task.position === boxId)
               .map((task) => (
