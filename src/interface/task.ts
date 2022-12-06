@@ -3,4 +3,5 @@ export interface Task {
   position: string;
   title: string;
   details: string;
+  price: number;
 }

@@ -27,7 +27,7 @@ const BoxTarget = (props: BoxTargetProps) => {
       ref={drop}
       sx={{
         width: 300,
-        height: 300,
+        height: 500,
         backgroundColor: "white",
         border: "1px dashed gray",
       }}

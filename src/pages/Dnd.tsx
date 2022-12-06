@@ -2,32 +2,38 @@ import React, { useState } from "react";
 import { HTML5Backend as Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import { TaskCard } from "../components/TaskCard";
+import Parking from "../components/Parking";
 import { Task } from "../interface/task";
 import BoxTarget from "../components/DropBox";
 import AddTask from "../components/AddTask";
 
+
+
 const Dnd = () => {
-  const [taskList, setTaskList] = useState<Task[]>([
-    { id: 1, title: "Task 1", position: "area1", details: "details" },
-    { id: 2, title: "Task 2", position: "area1", details: "details" },
-    { id: 3, title: "Task 3", position: "area1", details: "details" },
-    { id: 4, title: "Task 4", position: "area1", details: "details" },
-  ]);
+  const [taskList, setTaskList] = useState<Task[]>([]);
+  const [taskCount, setTaskCount] = useState(0);
+
   const changeStatus = (taskId: number, boxId: string) => {
     const draggedTask = taskList.find((task) => task.id === taskId);
-    console.log(draggedTask);
+    // console.log(draggedTask);
+    // console.log(boxId);
     if (draggedTask) {
       draggedTask.position = boxId;
       setTaskList(
         taskList.filter((task) => task.id !== taskId).concat(draggedTask)
-      );
+      )
     }
   };
+
+  const checkOut = (current: number) => {
+    setTaskCount(taskCount + current);
+  };
+
   return (
     <>
       <DndProvider backend={Backend}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-          <BoxTarget boxId={"area1"} changeStatus={changeStatus}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", margin: "20px 0" }}>
+          <BoxTarget boxId={"Reservation List"} changeStatus={changeStatus}>
             {taskList
               .filter((task) => task.position === "area1")
               .map((task) => (
@@ -42,9 +48,32 @@ const Dnd = () => {
               ))}
           </BoxTarget>
 
-          <BoxTarget boxId={"area2"} changeStatus={changeStatus}>
+          <div style={{
+                    width: "500px",
+                    height: "500px",
+                    border: "1px solid gray"
+                  }}
+              >
+                <Parking taskList = {taskList} changeStatus={changeStatus} setTaskList = {setTaskList} checkOut = {checkOut} />
+          </div>
+
+          <div style={{
+                    width: "300px",
+                    height: "500px",
+                    margin: "0 20px",
+                    border: "1px solid gray",
+                    textAlign: "center",
+                  }}> 
+                <h1>Total Revnue</h1>
+                <p></p>
+                <h2>{taskCount}</h2> 
+  
+                  
+          </div>
+
+          {/* <BoxTarget boxId={"Finish"} changeStatus={changeStatus}>
             {taskList
-              .filter((task) => task.position === "area2")
+              .filter((task) => task.position === "finish")
               .map((task) => (
                 <TaskCard
                   key={task.id}
@@ -55,19 +84,11 @@ const Dnd = () => {
                   setTaskList={setTaskList}
                 />
               ))}
-          </BoxTarget>
+          </BoxTarget> */}
         </div>
       </DndProvider>
       <AddTask taskList={taskList} setTaskList={setTaskList}></AddTask>
-      <div style={{ color: "black" }}>
-        <h2>Team 10 Sprint Planning 1</h2>
-        <ul className="completedList">
-          <li>
-            {" "}
-            Basic layout of the page, and the drag and drop function.(finished)
-          </li>
-        </ul>
-      </div>
+      
     </>
   );
 };

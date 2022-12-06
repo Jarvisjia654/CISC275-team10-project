@@ -2,7 +2,6 @@ import React from "react";
 import Box from "@mui/material/Box";
 import { useDrag } from "react-dnd";
 import itemTypes from "../utilities/itemTypes";
-import { Button } from "react-bootstrap";
 import "../styles.css";
 import { Task } from "../interface/task";
 
@@ -19,10 +18,10 @@ export const TaskCard = ({
   tasklist: Task[];
   setTaskList: (newTaskList: Task[]) => void;
 }) => {
-  function deleteTask() {
-    const newTaskList = tasklist.filter((task) => task.id !== id);
-    setTaskList(newTaskList);
-  }
+  // function deleteTask() {
+  //   const newTaskList = tasklist.filter((task) => task.id !== id);
+  //   setTaskList(newTaskList);
+  // }
 
   const [, drag] = useDrag({
     type: itemTypes.CARD,
@@ -44,13 +43,13 @@ export const TaskCard = ({
           width: 150,
           height: 50,
           backgroundColor: "white",
-          border: "1px dashed gray",
+          border: "1px black solid",
         }}
       >
         <li>{title}</li>
         <li>{details}</li>
       </Box>
-      <Button onClick={deleteTask}>delete</Button>
+      {/* <Button className="btn btn-default" onClick={deleteTask}>delete</Button> */}
     </div>
   );
 };

@@ -5,7 +5,15 @@
 }
 
 .Task {
-  max-width: 500px;
+  max-width:  600px;
   display: flex;
   float: left;
+  align-items: center;
+  margin: 10px 0;
+  margin-left: 15px;
+}
+
+.AddTask {
+  text-align: left;
+  padding: 10px;
 }
