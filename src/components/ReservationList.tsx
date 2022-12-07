@@ -1,8 +1,5 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { useDrop } from "react-dnd";
-import itemTypes from "../utilities/itemTypes";
-import { Task } from "../interface/task";
 
 export interface BoxTargetProps {
   boxId: string;
@@ -13,27 +10,26 @@ export interface BoxTargetProps {
 const BoxTarget = (props: BoxTargetProps) => {
   const boxId = props.boxId;
   const children = props.children;
-  const changeStatus = props.changeStatus;
-  const [, drop] = useDrop({
-    accept: itemTypes.CARD,
-    drop: (item: Task, monitor) => changeStatus(item.id, boxId),
-    collect: (monitor) => ({
-      isOver: !!monitor.isOver(),
-    }),
-  });
+  // const changeStatus = props.changeStatus;
+  // const [, drop] = useDrop({
+  //   accept: itemTypes.CARD,
+  //   drop: (item: Task, monitor) => changeStatus(item.id, boxId),
+  //   collect: (monitor) => ({
+  //     isOver: !!monitor.isOver(),
+  //   }),
+  // });
 
   return (
     <Box
-      ref={drop}
+      // ref={drop}
       sx={{
         width: 300,
         height: 500,
-        backgroundColor: "white",
-        border: "1px dashed gray",
+        border: "1px solid gray",
       }}
     >
       <div>
-        <h2>{boxId}</h2>
+        <h1>{boxId}</h1>
       </div>
       {children}
     </Box>

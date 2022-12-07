@@ -9,7 +9,16 @@ import services from "../utilities/services";
 export function AddTask({taskList, setTaskList}:{taskList:Task[], setTaskList:(newTaskList: Task[]) => void;}):  JSX.Element {
     const [title, setTitle] = useState("Sedan");
     const [details, setDetails] = useState("$ 0")
-    const options = ["Sedan", "SUV", "Truck", "Van", "Motorcycle", "Bus", "Trailer", "Other"];
+    const options = ["Sedan", "SUV", "Truck"];
+    let  factor = 0;
+    if (title === "Sedan") {
+        factor = 1;
+    } else if (title === "SUV") {
+        factor = 2;
+    } else if (title === "Truck") {
+        factor = 3;
+    }
+
     
     const [checkedState, setCheckedState] = useState(
         new Array(services.length).fill(false)
@@ -31,7 +40,7 @@ export function AddTask({taskList, setTaskList}:{taskList:Task[], setTaskList:(n
         const totalPrice = updatedCheckedState.reduce(
             (sum, currentState, index) => {
             if (currentState === true) {
-                return sum + services[index].price;
+                return sum + services[index].price*factor;
             }
             return sum;
             },
@@ -39,7 +48,8 @@ export function AddTask({taskList, setTaskList}:{taskList:Task[], setTaskList:(n
     );
 
     setTotal(totalPrice);
-    setDetails('$'.concat(totalPrice.toString()));
+    let parkinghour = totalPrice/factor/10;
+    setDetails(parkinghour.toString().concat(' hours'));
     };
 
     function addTask() {
@@ -59,6 +69,7 @@ export function AddTask({taskList, setTaskList}:{taskList:Task[], setTaskList:(n
                         ))}
                     </Form.Select>
             </Form.Group>
+            <h4>${10*factor} per hour</h4>
             <ul className="toppings-list">
                 {services.map(({ name, price }, index) => {
                 return (
@@ -73,9 +84,8 @@ export function AddTask({taskList, setTaskList}:{taskList:Task[], setTaskList:(n
                             checked={checkedState[index]}
                             onChange={() => handlePrice(index)}
                         />
-                        <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                        <label htmlFor={`custom-checkbox-${index}`}>{name} ${price*factor}</label>
                         </div>
-                        <div className="right-section">${price}</div>
                     </div>
                     </li>
                 );

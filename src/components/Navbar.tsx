@@ -8,7 +8,7 @@ export default function Navbar() {
       <Container>
         <Nav className="me-auto">
           <Nav.Link href="#/">Home</Nav.Link>
-          <Nav.Link href="#/dnd">Dnd</Nav.Link>
+          <Nav.Link href="#/dnd">Parking System</Nav.Link>
         </Nav>
         <Button></Button>
       </Container>

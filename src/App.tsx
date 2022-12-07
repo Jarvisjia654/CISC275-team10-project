@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Home from "./pages/Home";
-import Dnd from "./pages/Dnd";
+import ParkingSystem from "./pages/ParkingSystem";
 import Navbar from "./components/Navbar";
 
 function App(): JSX.Element {
@@ -11,7 +11,7 @@ function App(): JSX.Element {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dnd" element={<Dnd />} />
+          <Route path="/dnd" element={<ParkingSystem />} />
         </Routes>
       </Container>
     </>

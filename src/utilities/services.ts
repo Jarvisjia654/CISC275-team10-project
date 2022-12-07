@@ -1,19 +1,15 @@
 const services = [
     {
-      name: " Service A",
-      price: 100
+      name: " One hour",
+      price: 10
     },
     {
-      name: " Service B",
-      price: 200
+      name: " Two hour",
+      price: 20
     },
     {
-      name: " Service C",
-      price: 300
-    },
-    {
-      name: " Service D",
-      price: 400
+      name: " Three hour",
+      price: 30
     },
   ];
 

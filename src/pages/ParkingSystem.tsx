@@ -4,7 +4,7 @@ import { DndProvider } from "react-dnd";
 import { TaskCard } from "../components/TaskCard";
 import Parking from "../components/Parking";
 import { Task } from "../interface/task";
-import BoxTarget from "../components/DropBox";
+import BoxTarget from "../components/ReservationList";
 import AddTask from "../components/AddTask";
 
 
@@ -25,8 +25,9 @@ const Dnd = () => {
     }
   };
 
-  const checkOut = (current: number) => {
-    setTaskCount(taskCount + current);
+  const checkOut = (id: number) => {
+    const checkOutV = taskList.filter((task) => task.id === id);
+    setTaskCount(taskCount + checkOutV[0].price);
   };
 
   return (
@@ -51,6 +52,7 @@ const Dnd = () => {
           <div style={{
                     width: "500px",
                     height: "500px",
+                    margin: "0 40px",
                     border: "1px solid gray"
                   }}
               >
@@ -60,31 +62,30 @@ const Dnd = () => {
           <div style={{
                     width: "300px",
                     height: "500px",
-                    margin: "0 20px",
+                    margin: "0 40px",
                     border: "1px solid gray",
                     textAlign: "center",
                   }}> 
                 <h1>Total Revnue</h1>
                 <p></p>
-                <h2>{taskCount}</h2> 
+                <h2>$ {taskCount}</h2> 
+                {taskList
+                  .filter((task) => task.position === "area1")
+                  .map((task) => (
+                    <div>
+                      <p>One {task.title} is waiting</p>
+                    </div>
+                 ))}
+                 {taskList
+                  .filter((task) => task.position !== "area1")
+                  .map((task) => (
+                    <div>
+                      <p>One {task.title} is in spot {task.position}</p>
+                    </div>
+                 ))}
   
                   
           </div>
-
-          {/* <BoxTarget boxId={"Finish"} changeStatus={changeStatus}>
-            {taskList
-              .filter((task) => task.position === "finish")
-              .map((task) => (
-                <TaskCard
-                  key={task.id}
-                  id={task.id}
-                  title={task.title}
-                  details={task.details}
-                  tasklist={taskList}
-                  setTaskList={setTaskList}
-                />
-              ))}
-          </BoxTarget> */}
         </div>
       </DndProvider>
       <AddTask taskList={taskList} setTaskList={setTaskList}></AddTask>
