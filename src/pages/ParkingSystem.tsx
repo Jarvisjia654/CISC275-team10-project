@@ -8,6 +8,7 @@ import BoxTarget from "../components/ReservationList";
 import AddTask from "../components/AddTask";
 
 
+
 const Dnd = () => {
   const [taskList, setTaskList] = useState<Task[]>([]);
   const [taskCount, setTaskCount] = useState(0);
@@ -30,7 +31,6 @@ const Dnd = () => {
   };
 
   return (
-    <div>
     <>
       <DndProvider backend={Backend}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", margin: "20px 0" }}>
@@ -48,7 +48,7 @@ const Dnd = () => {
                 />
               ))}
           </BoxTarget>
-        
+
           <div style={{
                     width: "500px",
                     height: "500px",
@@ -91,7 +91,6 @@ const Dnd = () => {
       <AddTask taskList={taskList} setTaskList={setTaskList}></AddTask>
       
     </>
-  </div>
   );
 };
 
