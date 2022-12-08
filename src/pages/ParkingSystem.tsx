@@ -66,7 +66,7 @@ const Dnd = () => {
                     border: "1px solid gray",
                     textAlign: "center",
                   }}> 
-                <h1>Total Revnue</h1>
+                <h1>Total Revenue</h1>
                 <p></p>
                 <h2>$ {taskCount}</h2> 
                 {taskList
