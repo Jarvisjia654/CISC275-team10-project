@@ -11,7 +11,6 @@ function Home() {
         <img src={logo} width="1000" height="666.4"/>
       </div>
       {/* <img src={logo} width="1250" height="833"/> */}
-      {/* Welcome */}
       <div style={{color: "green"}}>
         General Regulations
       </div>
