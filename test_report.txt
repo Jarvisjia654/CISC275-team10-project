@@ -58,7 +58,7 @@ All files             |       0 |        0 |       0 |       0 |
   index.tsx           |       0 |      100 |     100 |       0 | 9-23              
   reportWebVitals.ts  |       0 |        0 |       0 |       0 | 3-10              
  src/components       |       0 |        0 |       0 |       0 |                   
-  AddTask.tsx         |       0 |        0 |       0 |       0 | 10-85             
+  AddTask.tsx         |       0 |        0 |       0 |       0 | 10-151            
   Navbar.tsx          |       0 |      100 |       0 |       0 | 6                 
   Parking.tsx         |       0 |      100 |       0 |       0 | 15-38             
   ParkingBlock.tsx    |       0 |      100 |       0 |       0 | 15-47             
@@ -70,7 +70,7 @@ All files             |       0 |        0 |       0 |       0 |
   task.ts             |       0 |        0 |       0 |       0 |                   
  src/pages            |       0 |        0 |       0 |       0 |                   
   Home.tsx            |       0 |      100 |       0 |       0 | 7                 
-  ParkingSystem.tsx   |       0 |        0 |       0 |       0 | 12-82             
+  ParkingSystem.tsx   |       0 |        0 |       0 |       0 | 11-82             
  src/utilities        |       0 |      100 |     100 |       0 |                   
   carTypes.ts         |       0 |      100 |     100 |       0 | 1                 
   itemTypes.ts        |       0 |      100 |     100 |       0 | 1                 
@@ -79,5 +79,5 @@ All files             |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.626 s
+Time:        2.995 s
 Ran all test suites.
