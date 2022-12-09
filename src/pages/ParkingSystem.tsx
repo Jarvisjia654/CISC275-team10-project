@@ -50,8 +50,8 @@ const Dnd = () => {
           </BoxTarget>
 
           <div style={{
-                    width: "500px",
-                    height: "500px",
+                    width: "750px",
+                    height: "750px",
                     margin: "0 40px",
                     border: "1px solid gray"
                   }}

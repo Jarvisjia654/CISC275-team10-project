@@ -17,7 +17,7 @@ const renderSquare = (i: number, j: number, changeStatus:any, taskList:any, setT
     const y = j;
     const boxId = x.toString().concat(y.toString());
     return (
-        <div key={i*10+j} style={{ width: "25%", height: "25%" }}>
+        <div key={i*10+j} style={{ width: "16.666%", height: "16.666%" }}>
             <ParkingBlock boxId = {boxId} changeStatus={changeStatus} taskList = {taskList} setTaskList = {setTaskList} checkOut = {checkOut}></ParkingBlock>
         </div>
     );
@@ -30,8 +30,8 @@ const Parking = (props: ParkingProps) => {
     const checkOut = props.checkOut;
     const taskList = props.taskList;
     const squares = [];
-    for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 6; j++) {
             squares.push(renderSquare(i, j, changeStatus, taskList, setTaskList, checkOut));
         }
     }
