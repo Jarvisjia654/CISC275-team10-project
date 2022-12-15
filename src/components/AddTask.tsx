@@ -8,7 +8,7 @@ import services from "../utilities/services";
 
 export function AddTask({taskList, setTaskList}:{taskList:Task[], setTaskList:(newTaskList: Task[]) => void;}):  JSX.Element {
     const [title, setTitle] = useState("Civic");
-    const [details, setDetails] = useState("0 Hours")
+    const [details, setDetails] = useState("0 hours")
     const options = ["Civic", "Altima", "Maxima", "Miata", "Monte Carlo", "Prius", "Challenger", "Charger", "Camaro", "Caprise", "Acadia", "Cherokee", "RAV4", "Journey", "Sorento", "CR-V", "Grand Cherokee", "CX-5", "Explorer", "Edge", "Silverado", "F-150", "F-250", "Colorado", "Tundra", "Sierra", "Tacoma", "Ranger", "Titan", "Avalanche" ];
     let factor = 0;
     if ((title === "Civic") || (title === "Altima") || (title === "Maxima") || (title === "Miata") || (title === "Monte Carlo") || (title === "Prius") || (title === "Challenger") || (title === "Charger") || (title === "Camaro") || (title === "Caprise")) {
@@ -22,18 +22,7 @@ export function AddTask({taskList, setTaskList}:{taskList:Task[], setTaskList:(n
     const newList = [...taskList];
     const dupList = [...newList];
 
-    function carFilter(): void{
-        const x = dupList.filter((t: Task): boolean => (t.title === "Civic") || (t.title === "Altima") || (t.title === "Maxima") || (t.title === "Miata") || (t.title === "Monte Carlo") || (t.title === "Prius") || (t.title === "Challenger") || (t.title === "Charger") || (t.title === "Camaro") || (t.title === "Caprise"));
-        setTaskList(x);
-    }
-    function suvFilter(): void{
-        const x = dupList.filter((t: Task): boolean => (t.title === "Acadia") || (t.title === "Cherokee") || (t.title === "RAV4") || (t.title === "Journey") || (t.title === "Sorento") || (t.title === "CR-V") || (t.title === "Grand Cherokee") || (t.title === "CX-5") || (t.title === "Explorer") || (t.title === "Edge"));
-        setTaskList(x);
-    }
-    function truckFilter(): void{
-        const x = dupList.filter((t: Task): boolean => (t.title === "Silverado") || (t.title === "F-150") || (t.title === "F-250") || (t.title === "Colorado") || (t.title === "Tundra") || (t.title === "Sierra") || (t.title === "Tacoma") || (t.title === "Ranger") || (t.title === "Titan") || (t.title === "Avalanche"));
-        setTaskList(x);
-    }
+    
 
     function typeSort(): void{
         const x = dupList.filter((t: Task): boolean => (t.title === "Civic") || (t.title === "Altima") || (t.title === "Maxima") || (t.title === "Miata") || (t.title === "Monte Carlo") || (t.title === "Prius") || (t.title === "Challenger") || (t.title === "Charger") || (t.title === "Camaro") || (t.title === "Caprise"));
@@ -56,22 +45,38 @@ export function AddTask({taskList, setTaskList}:{taskList:Task[], setTaskList:(n
     }
 
     function hourSort(): void{
+        const w = dupList.filter((t: Task): boolean => t.details === "0 hours");
         const x = dupList.filter((t: Task): boolean => t.details === "1 hours");
         const y = dupList.filter((t: Task): boolean => t.details === "2 hours");
         const z = dupList.filter((t: Task): boolean => t.details === "3 hours");
-        const a = x.concat(y);
-        const b = a.concat(z);
-        setTaskList(b);
+        const c = dupList.filter((t: Task): boolean => t.details === "4 hours");
+        const d = dupList.filter((t: Task): boolean => t.details === "5 hours");
+        const e = dupList.filter((t: Task): boolean => t.details === "6 hours");
+        const a = w.concat(x);
+        const b = a.concat(y);
+        const f = b.concat(z);
+        const g = f.concat(c);
+        const h = g.concat(d);
+        const i = h.concat(e);
+        setTaskList(i);
         console.log(taskList);
     }
 
     function revHourSort(): void{
-        const x = dupList.filter((t: Task): boolean => t.details === "3 hours");
-        const y = dupList.filter((t: Task): boolean => t.details === "2 hours");
-        const z = dupList.filter((t: Task): boolean => t.details === "1 hours");
-        const a = x.concat(y);
-        const b = a.concat(z);
-        setTaskList(b);
+        const w = dupList.filter((t: Task): boolean => t.details === "6 hours");
+        const x = dupList.filter((t: Task): boolean => t.details === "5 hours");
+        const y = dupList.filter((t: Task): boolean => t.details === "4 hours");
+        const z = dupList.filter((t: Task): boolean => t.details === "3 hours");
+        const c = dupList.filter((t: Task): boolean => t.details === "2 hours");
+        const d = dupList.filter((t: Task): boolean => t.details === "1 hours");
+        const e = dupList.filter((t: Task): boolean => t.details === "0 hours");
+        const a = w.concat(x);
+        const b = a.concat(y);
+        const f = b.concat(z);
+        const g = f.concat(c);
+        const h = g.concat(d);
+        const i = h.concat(e);
+        setTaskList(i);
         console.log(taskList);
     }
 
@@ -109,15 +114,12 @@ export function AddTask({taskList, setTaskList}:{taskList:Task[], setTaskList:(n
     };
 
     function addTask() {
-        setTaskList(taskList.concat({id: taskList.length + 1, factor, title, details, position: "area1", price: total, on: true, features: []}))
+        setTaskList(taskList.concat({id: taskList.length + 1, title, details, position: "area1", price: total, on: true, features: []}))
     }
 
     return (
         <div>
             <div>
-                <Button onClick={carFilter}>Car</Button>
-                <Button onClick={suvFilter}>SUV</Button>
-                <Button onClick={truckFilter}>Truck</Button>
                 <Button onClick={typeSort}>Sort by Smallest</Button>
                 <Button onClick={hourSort}>Sort by Least Hours</Button>
                 <Button onClick={revTypeSort}>Sort by Biggest</Button>
